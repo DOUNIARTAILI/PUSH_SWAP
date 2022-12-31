@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:01:00 by drtaili           #+#    #+#             */
-/*   Updated: 2022/12/30 18:46:51 by drtaili          ###   ########.fr       */
+/*   Updated: 2022/12/31 16:18:14 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,31 +114,31 @@ int main()
     struct stacknode* head_b = NULL;
 
 
-    // puts("a");
+    puts("a");
     push(&head, 50);
-    // push(&head, 30);
-    // push(&head, 4);
-    // push(&head, 10);
+    push(&head, 30);
+    push(&head, 4);
+    push(&head, 10);
     // push(&head, 20);
-    // displaystack(head);
-    // puts("******");
+    displaystack(head);
+    puts("******");
     // rev_pop(&head);
     // displaystack(head);
     // puts("b");
-    // push(&head_b, 15);
-    // push(&head_b, 6);
-    // push(&head_b, 8);
-    // push(&head_b, 60);
-    // push(&head_b, 13);
-    // displaystack(head_b);
-    // puts("******");
+    push(&head_b, 15);
+    push(&head_b, 6);
+    push(&head_b, 8);
+    push(&head_b, 60);
+    push(&head_b, 13);
+    displaystack(head_b);
+    puts("******");
     // pop(&head);
     // displaystack(head);
     // puts("******");
     // printf("%d popped from stack\n", pop(&head));
  
     // printf("number of element is %d\n", size_stack(head));
-    sa(head);
+    // ss(head, head_b);
     // puts("******");
     // ss(head_b, head);
     // displaystack(head_b);
@@ -150,7 +150,10 @@ int main()
     // displaystack(head_b);
     // puts("ra");
     // ra(&head);
+    // pb(&head, &head_b);
+    rr(&head,&head_b);
     displaystack(head);
+    displaystack(head_b);
     return 0;
     
 }
