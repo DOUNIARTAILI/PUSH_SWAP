@@ -6,21 +6,21 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:49:59 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/02 03:33:23 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/02 06:05:28 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(const char *s)
-{
-	int	len;
+// int	ft_strlen(const char *s)
+// {
+// 	int	len;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
+// 	len = 0;
+// 	while (s[len] != '\0')
+// 		len++;
+// 	return (len);
+// }
 
 void	ft_putstr(char *s)
 {

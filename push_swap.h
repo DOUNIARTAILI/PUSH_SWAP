@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 16:38:31 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/02 03:07:02 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/02 06:06:05 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void				rrr(struct stacknode **head_a, struct stacknode **head_b);
 void				rev_pop(struct stacknode **head);
 int					search_node(struct stacknode *head, int i);
 int					*indexing(struct stacknode *head);
+size_t	ft_strlen(const char *s);
 
 #endif

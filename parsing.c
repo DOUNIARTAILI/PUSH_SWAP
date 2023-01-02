@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/02 03:42:16 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/02 06:19:42 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ char	**ft_split(char const *s, char c)
 	int		word_count;
 
 	word_count = count_words(s, c);
-	ret = (char **)ft_calloc(word_count + 1, sizeof(char *));
+	ret = (char **)calloc(word_count + 1, sizeof(char *));
 	if (!ret)
 		return (NULL);
 	k = -1;
@@ -152,17 +152,58 @@ char	**ft_split(char const *s, char c)
 	return (ret);
 }
 
-// int main(int argc, char **argv)
-// {
-	
-// }
-// "1   2 33 44 666"
-// count = 5
-// len word = tol dyal kalma
-// ret :
-// 1
-// 2
-// 33
-// 44
-// 666
-// \0
+int	ft_atoi(const char *str)
+{
+	int	r;
+	int	i;
+	int	s;
+
+	i = 0;
+	r = 0;
+	s = 1;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			s = s * (-1);
+		i++;
+	}
+	while (str[i] <= '9' && str[i] >= '0')
+	{
+		r = r * 10 + (str[i] - '0');
+		i++;
+	}
+	return (r * s);
+}
+
+t_node *parsing(int argc, char **argv)
+{
+	t_node *head;
+	char **splits;
+	int	i;
+	int j;
+
+	head = NULL;
+	i = 1;
+	while (i < argc) 
+	{
+		splits = ft_split(argv[i], ' ');
+		j = 0;
+		while (splits[j])
+		{
+			push(&head, atoi(splits[j]));
+			free(splits[j]);
+			j++;
+		}
+		free(splits);
+		i++;
+	}
+	return (head);
+}
+int main(int argc, char **argv)
+{
+	t_node *head = parsing(argc, argv);
+	displaystack(head);
+}
