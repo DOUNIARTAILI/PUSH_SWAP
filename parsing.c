@@ -6,153 +6,33 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/02 06:19:42 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/04 08:23:47 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
+void	error_(t_node *head)
 {
-	size_t	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	free(head);
+	write(2, "Error \n", 7);
+	exit(EXIT_FAILURE);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void free_stack(t_node *head)
 {
-	size_t	i;
-	size_t	slen;
+	t_node	*tmp;
 
-	i = 0;
-	slen = ft_strlen(src);
-	if (!dstsize)
-		return (slen);
-	while (i < slen && i < dstsize - 1)
+	tmp = head;
+	while (tmp)
 	{
-		dst[i] = src[i];
-		i++;
+		free(tmp);
+		tmp = tmp->next;
 	}
-	dst[i] = '\0';
-	return (slen);
+	free(head);
 }
 
-char	*ft_strdup(const char *s1)
-{
-	size_t	len;
-	char	*dup;
-
-	len = ft_strlen(s1);
-	dup = (char *)malloc(len * sizeof(char) + 1);
-	if (dup == NULL)
-		return (NULL);
-	ft_strlcpy(dup, s1, len * sizeof(char) + 1);
-	return (dup);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*sub;
-	size_t	maxlen;
-	size_t	slen;
-
-	if (!s)
-		return (NULL);
-	slen = ft_strlen(s);
-	if (slen < start)
-		return (ft_strdup(""));
-	maxlen = slen - start;
-	if (len < slen - start)
-		maxlen = len;
-	sub = (char *)malloc(maxlen + 1);
-	if (sub == NULL)
-		return (NULL);
-	ft_strlcpy(sub, s + start, maxlen + 1);
-	return (sub);
-}
-
-static int	count_words(char const *s, char c)
-{
-	size_t	i;
-	int		count;
-
-	if (!s)
-		return (0);
-	count = 0;
-	i = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		if (!s[i])
-			break ;
-		count++;
-		while (s[i] != c && s[i])
-			i++;
-	}
-	return (count);
-}
-
-static void	ft_free(char **ret, int k)
-{
-	int	j;
-
-	j = 0;
-	while (j < k)
-	{
-		free(ret[j]);
-		j++;
-	}
-	free(ret);
-}
-
-static int	skip_c(char const *s, char c, int i)
-{
-	while (s[i] == c && s[i])
-		i++;
-	return (i);
-}
-
-static int	ft_lenword(char const *s, char c, int i)
-{
-	while (s[i] != c && s[i])
-		i++;
-	return (i);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		i;
-	int		j;
-	int		k;
-	char	**ret;
-	int		word_count;
-
-	word_count = count_words(s, c);
-	ret = (char **)calloc(word_count + 1, sizeof(char *));
-	if (!ret)
-		return (NULL);
-	k = -1;
-	i = 0;
-	while (++k < word_count)
-	{
-		i = skip_c(s, c, i);
-		j = ft_lenword(s, c, i);
-		ret[k] = ft_substr(s, i, j - i);
-		if (!ret[k])
-		{
-			ft_free(ret, k);
-			return (NULL);
-		}
-		i = j;
-	}
-	return (ret);
-}
-
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, t_node *head)
 {
 	int	r;
 	int	i;
@@ -175,25 +55,31 @@ int	ft_atoi(const char *str)
 		r = r * 10 + (str[i] - '0');
 		i++;
 	}
+	if (str[i] != ' ' && str[i] != '\0')
+		error_(head);
+	if ((r * s) < -2147483648 || (r * s) > 2147483647)
+		error_(head);
 	return (r * s);
 }
 
-t_node *parsing(int argc, char **argv)
+t_node	*parsing(int argc, char **argv)
 {
-	t_node *head;
-	char **splits;
-	int	i;
-	int j;
+	t_node	*head;
+	char	**splits;
+	int		i;
+	int		j;
 
 	head = NULL;
 	i = 1;
-	while (i < argc) 
+	if (argc == 1)
+		exit(0);
+	while (i < argc)
 	{
 		splits = ft_split(argv[i], ' ');
 		j = 0;
 		while (splits[j])
 		{
-			push(&head, atoi(splits[j]));
+			push(&head, ft_atoi(splits[j], head));
 			free(splits[j]);
 			j++;
 		}
@@ -202,8 +88,17 @@ t_node *parsing(int argc, char **argv)
 	}
 	return (head);
 }
-int main(int argc, char **argv)
+
+int	is_already_sorted(t_node *head)
 {
-	t_node *head = parsing(argc, argv);
-	displaystack(head);
+	t_node	*tmp;
+
+	tmp = head;
+	while (tmp && tmp->next)
+	{
+		if (tmp->data < tmp->next->data)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

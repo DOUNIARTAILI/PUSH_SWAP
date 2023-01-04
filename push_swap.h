@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 16:38:31 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/02 06:06:05 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/04 06:42:02 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-struct stacknode {
+typedef struct stacknode{
 	int					data;
 	struct stacknode	*next;
-};
+}t_node;
 
-typedef struct stacknode t_node;
-
-void				displaystack(struct stacknode *head);
-void				pop(struct stacknode **head);
-void				push(struct stacknode **head, int data);
-int					size_stack(struct stacknode *head);
-struct stacknode	*newnode(int data);
 void				sa(struct stacknode *head, int status);
-int					is_empty(struct stacknode *head);
 void				sb(struct stacknode *head, int status);
 void				ss(struct stacknode *head_a, struct stacknode *head_b);
 void				pa(struct stacknode **head_a,
@@ -43,9 +35,29 @@ void				rr(struct stacknode **head_a, struct stacknode **head_b);
 void				rra(struct stacknode **head, int status);
 void				rrb(struct stacknode **head, int status);
 void				rrr(struct stacknode **head_a, struct stacknode **head_b);
+t_node				*newnode(int data);
+int					is_empty(struct stacknode *head);
+void				push(struct stacknode **head, int data);
+void				pop(struct stacknode **head);
 void				rev_pop(struct stacknode **head);
-int					search_node(struct stacknode *head, int i);
-int					*indexing(struct stacknode *head);
-size_t	ft_strlen(const char *s);
+void				displaystack(struct stacknode *head);
+int					size_stack(struct stacknode *head);
+size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char				*ft_strdup(const char *s1);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+void				ft_putstr(char *s);
+size_t				ft_strlen(const char *s);
+void				ft_putnbr(int n);
+void				*ft_calloc(size_t count, size_t size);
+void				ft_bzero(void *s, size_t n);
+void				*ft_memset(void *b, int c, size_t len);
+void				error_(t_node *head);
+t_node				*parsing(int argc, char **argv);
+int					is_already_sorted(t_node *head);
+char				**ft_split(char const *s, char c);
+t_node				*indexing(struct stacknode *head);
+t_node				*tab_to_stack(int *tab, int size);
+void				sort_3(struct stacknode **head_ptr);
+void				sort_5(t_node *head, t_node *head_b);
 
 #endif
