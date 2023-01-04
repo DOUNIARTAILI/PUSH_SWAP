@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/04 08:23:47 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/04 08:35:23 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void free_stack(t_node *head)
 
 int	ft_atoi(const char *str, t_node *head)
 {
-	int	r;
+	long	r;
 	int	i;
 	int	s;
 
