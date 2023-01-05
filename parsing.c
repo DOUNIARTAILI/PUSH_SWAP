@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/04 08:35:23 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/04 08:54:17 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,6 @@ void	error_(t_node *head)
 	free(head);
 	write(2, "Error \n", 7);
 	exit(EXIT_FAILURE);
-}
-
-void free_stack(t_node *head)
-{
-	t_node	*tmp;
-
-	tmp = head;
-	while (tmp)
-	{
-		free(tmp);
-		tmp = tmp->next;
-	}
-	free(head);
 }
 
 int	ft_atoi(const char *str, t_node *head)
