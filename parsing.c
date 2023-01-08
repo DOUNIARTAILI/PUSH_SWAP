@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/04 08:54:17 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/08 16:17:25 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,28 @@ int	ft_atoi(const char *str, t_node *head)
 	return (r * s);
 }
 
+t_node *reverse(t_node *head)
+{
+	t_node *a;
+	t_node *prev;
+	t_node *nxt;
+	
+	if (!head)
+		return (0);
+	a = head;
+	prev = NULL;
+	while (a->next)
+	{
+		nxt = a->next;
+		a->next = prev;
+		prev = a;
+		a = nxt;
+	}
+	a->next = prev;
+	head = a;
+	return (head);
+}
+
 t_node	*parsing(int argc, char **argv)
 {
 	t_node	*head;
@@ -73,6 +95,7 @@ t_node	*parsing(int argc, char **argv)
 		free(splits);
 		i++;
 	}
+	head = reverse(head);
 	return (head);
 }
 
