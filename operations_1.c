@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 05:18:55 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/04 05:57:50 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/09 19:33:05 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ra(struct stacknode **head, int status)
 	struct stacknode	*tmp;
 	struct stacknode	*cup;
 
+	if (size_stack(*head) < 2)
+		return ;
 	cup = (*head);
 	(*head) = (*head)->next;
 	tmp = *head;
@@ -30,6 +32,8 @@ void	ra(struct stacknode **head, int status)
 
 void	rb(struct stacknode **head, int status)
 {
+	if (size_stack(*head) < 2)
+		return ;
 	if (status == 1)
 		ft_putstr("rb\n");
 	ra(head, 0);

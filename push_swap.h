@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 16:38:31 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/08 14:31:58 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/09 19:55:04 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void				rrr(struct stacknode **head_a, struct stacknode **head_b);
 t_node				*newnode(int data);
 int					is_empty(struct stacknode *head);
 void				push(struct stacknode **head, int data);
+void				push_back(t_node **head, int data);
 void				pop(struct stacknode **head);
 void				rev_pop(struct stacknode **head);
 void				displaystack(struct stacknode *head);
@@ -59,9 +60,9 @@ char				**ft_split(char const *s, char c);
 t_node				*indexing(struct stacknode *head);
 t_node				*tab_to_stack(int *tab, int size);
 void				sort_3(struct stacknode **head_ptr);
-void				sort_5(t_node *head, t_node *head_b);
-void				sort_100(t_node *head_a, t_node *head_b);
+void				sort_5(t_node **head_a, t_node *head_b);
+void				sort_100(t_node **head_a, t_node *head_b);
 void				search_stack_node(t_node **head_b, int data);
-void				fill_up_b(t_node *head_a, t_node *head_b);
+void				fill_up_b(t_node **head_a_ptr, t_node *head_b);
 
 #endif

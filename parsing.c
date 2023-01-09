@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/08 16:17:25 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/09 16:38:19 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ t_node	*parsing(int argc, char **argv)
 		j = 0;
 		while (splits[j])
 		{
+			// push_back(&head, ft_atoi(splits[j], head));
 			push(&head, ft_atoi(splits[j], head));
 			free(splits[j]);
 			j++;
@@ -95,7 +96,7 @@ t_node	*parsing(int argc, char **argv)
 		free(splits);
 		i++;
 	}
-	head = reverse(head);
+	// head = reverse(head);
 	return (head);
 }
 
