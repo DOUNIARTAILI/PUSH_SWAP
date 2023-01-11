@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:01:00 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/09 20:01:34 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/11 15:29:19 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,23 +77,30 @@ int	main(int argc, char **argv)
 	t_node	*head;
 	t_node	*head_b;
 	t_node	*indexed;
+	int last;
 
 	head_b = NULL;
 	indexed = NULL;
 	head = parsing(argc, argv);
 	indexed = indexing(head);
+	last = ft_stacklast(&indexed);
+	// printf("%d", last);
 	// displaystack(indexed);
 	// displaystack(indexed);
-	// if (is_already_sorted(indexed))
-	// 	exit(0);
+	
+	if (is_already_sorted(indexed))
+		exit(0);
 	if (size_stack(indexed) == 3)
 		sort_3(&indexed);
-	// puts("****************");
 	if (size_stack(indexed) == 5)
-		sort_5(&indexed, head_b);
+		sort_5(&indexed);
 	if (size_stack(indexed) > 5)
 		sort_100(&indexed, head_b);
-	// displaystack(indexed);
+	// puts("****************");
+	if (size_stack(indexed) > 100)
+		sort_500(&indexed, head_b);
+	puts("****************");
+	displaystack(indexed);
 	// head = sort_3(&head);
 	// printf("%d",head->data);
 }

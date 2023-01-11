@@ -1,42 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_100.c                                         :+:      :+:    :+:   */
+/*   sort_over_100.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 23:03:42 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/11 15:08:54 by drtaili          ###   ########.fr       */
+/*   Created: 2023/01/10 11:31:10 by drtaili           #+#    #+#             */
+/*   Updated: 2023/01/11 15:15:05 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	search_stack_node(t_node **head_b, int val)
+void	search_stack_node_over_100(t_node **head_a, t_node **head_b, int val)
 {
-	int		i;
-	t_node	*tmp;
+	int				i;
+	static int		x;
+	int				last;
+	t_node	*tmp_b;
+	t_node	*tmp_a;
 
 	i = 0;
-	tmp = *head_b;
-	while (tmp)
+	tmp_b = *head_b;
+	tmp_a = *head_a;
+	last = ft_stacklast(head_a);
+	if (val == last)
+		rra(head_a, 1);
+	while (tmp_b)
 	{
-		if (tmp->data == val)
+		if (tmp_b->data == val)
 			break ;
-		tmp = tmp->next;
+		tmp_b = tmp_b->next;
 		i++;
 	}
-	if (!tmp)
+	if (!tmp_b)
 		return ;
-	if (i < size_stack(*head_b) / 2)
-	{	while ((*head_b)->data != val)
-			rb(head_b, 1);}
-	else
-	{	while ((*head_b)->data != val)
-			rrb(head_b, 1);}
+	while ((*head_b)->data != val)
+	{
+		if ((*head_b)->data != val && (*head_b)->data > x)
+		{
+			x = (*head_b)->data;
+			pa(head_a, head_b, 1);
+			ra(head_a, 1);
+		}
+		else if ((*head_b)->data != val)
+		{
+			if (i < size_stack(*head_b) / 2)
+				rb(head_b, 1);
+			else
+				rrb(head_b, 1);
+		}
+	}
 }
 
-void    sort_100(t_node **head_a_ptr, t_node *head_b)
+void    sort_500(t_node **head_a_ptr, t_node *head_b)
 {
 	t_node	*head_a;
     int cup_size;
@@ -47,7 +64,7 @@ void    sort_100(t_node **head_a_ptr, t_node *head_b)
 	head_a = *head_a_ptr;
 	while (size_stack(head_a) > 3)
 	{
-		cup_size = size_stack(head_a) / 3;
+		cup_size = size_stack(head_a) / 4;
 		while (size_stack(head_b) < cup_size + s)
 		{
 			// printf("nbr == %d cup =%d\ts=%d\tsize_b=%d\n",head_a->data,cup_size,s,size_stack(head_b));
@@ -67,6 +84,12 @@ void    sort_100(t_node **head_a_ptr, t_node *head_b)
 		s += cup_size;
 	}
 	sort_3(&head_a);
+	// while (size_stack(head_b))
+	// {
+	// 	data = head_a->data;
+	// 	search_stack_node_over_100(&head_a, &head_b, data - 1);
+	// 	pa(&head_a, &head_b, 1);
+	// }
 	while (size_stack(head_b))
 	{
 		data = head_a->data;
@@ -75,3 +98,4 @@ void    sort_100(t_node **head_a_ptr, t_node *head_b)
 	}
 	*head_a_ptr = head_a;
 }
+

@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/09 16:38:19 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:06:15 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int	ft_atoi(const char *str, t_node *head)
 	long	r;
 	int	i;
 	int	s;
+	int	count;
 
 	i = 0;
 	r = 0;
+	count = 0;
 	s = 1;
 	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
 		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
@@ -40,6 +42,9 @@ int	ft_atoi(const char *str, t_node *head)
 	while (str[i] <= '9' && str[i] >= '0')
 	{
 		r = r * 10 + (str[i] - '0');
+		count++;
+		if (count > 10 && r != 0)
+			error_(head);
 		i++;
 	}
 	if (str[i] != ' ' && str[i] != '\0')
@@ -88,7 +93,6 @@ t_node	*parsing(int argc, char **argv)
 		j = 0;
 		while (splits[j])
 		{
-			// push_back(&head, ft_atoi(splits[j], head));
 			push(&head, ft_atoi(splits[j], head));
 			free(splits[j]);
 			j++;
@@ -96,7 +100,6 @@ t_node	*parsing(int argc, char **argv)
 		free(splits);
 		i++;
 	}
-	// head = reverse(head);
 	return (head);
 }
 

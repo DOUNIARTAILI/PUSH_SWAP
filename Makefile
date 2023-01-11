@@ -6,11 +6,11 @@
 #    By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/04 06:26:04 by drtaili           #+#    #+#              #
-#    Updated: 2023/01/05 02:20:31 by drtaili          ###   ########.fr        #
+#    Updated: 2023/01/10 11:33:32 by drtaili          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = indexing.c operations.c operations_1.c operations_2.c parsing.c push_swap.c sort_3_5.c split.c stack_utils.c utils.c utils_.c sort_100.c
+SRC = indexing.c operations.c operations_1.c operations_2.c parsing.c push_swap.c sort_3_5.c split.c stack_utils.c utils.c utils_.c sort_100.c sort_over_100.c
 
 OBJS = $(SRC:.c=.o)
 

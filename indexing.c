@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 05:00:51 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/04 06:21:37 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/10 12:08:55 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	index_update(int aval, int bval, int *aindex, int *bindex)
 	else if (aval < bval)
 		(*bindex)++;
 	else
+	{
 		write(2, "Error \n", 7);
+		exit(0);
+	}
 }
 
 t_node	*indexing(struct stacknode *head)

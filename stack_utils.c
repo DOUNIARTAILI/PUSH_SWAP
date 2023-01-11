@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 05:22:06 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/08 14:36:11 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:19:06 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,15 @@ int	size_stack(struct stacknode *head)
 // 	}
 // 	free(head);
 // }
+
+int	ft_stacklast(t_node **head)
+{
+	t_node	*tmp;
+
+	tmp = *head;	
+	if (!tmp)
+		return (0);
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	return (tmp->data);
+}
