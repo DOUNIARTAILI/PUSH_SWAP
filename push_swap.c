@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:01:00 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/12 20:15:37 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/12 22:28:08 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,6 @@ void	push(struct stacknode **head, int data)
 	node = newnode(data);
 	node->next = *head;
 	*head = node;
-}
-
-void	push_back(t_node **head, int data)
-{
-	t_node	*last;
-	t_node	*node;
-
-	last = *head;
-	node = newnode(data);
-	while (last->next)
-		last = last->next;
-	if (last == NULL)
-		*head = node;
-	else
-		last->next = node;
 }
 
 void	pop(struct stacknode **head)
@@ -77,17 +62,11 @@ int	main(int argc, char **argv)
 	t_node	*head;
 	t_node	*head_b;
 	t_node	*indexed;
-	int last;
 
 	head_b = NULL;
 	indexed = NULL;
 	head = parsing(argc, argv);
 	indexed = indexing(head);
-	last = ft_stacklast(&indexed);
-	// displaystack(indexed);
-	// printf("%d", last);
-	displaystack(indexed);
-	
 	if (is_already_sorted(indexed))
 		exit(0);
 	if (size_stack(indexed) == 3)
@@ -98,11 +77,7 @@ int	main(int argc, char **argv)
 		sort_5(&indexed);
 	else if (size_stack(indexed) > 5 && size_stack(indexed) <= 100)
 		sort_100(&indexed, head_b);
-	// puts("****************");
 	else if (size_stack(indexed) > 100)
 		sort_500(&indexed, head_b);
-	// puts("****************");
-	displaystack(indexed);
-	// head = sort_3(&head);
-	// printf("%d",head->data);
+	// puts("**-**");
 }

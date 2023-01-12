@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/11 14:06:15 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/12 22:29:08 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_(t_node *head)
 {
-	free(head);
+	free_stack(head);
 	write(2, "Error \n", 7);
 	exit(EXIT_FAILURE);
 }
@@ -22,9 +22,9 @@ void	error_(t_node *head)
 int	ft_atoi(const char *str, t_node *head)
 {
 	long	r;
-	int	i;
-	int	s;
-	int	count;
+	int		i;
+	int		s;
+	int		count;
 
 	i = 0;
 	r = 0;
@@ -52,28 +52,6 @@ int	ft_atoi(const char *str, t_node *head)
 	if ((r * s) < -2147483648 || (r * s) > 2147483647)
 		error_(head);
 	return (r * s);
-}
-
-t_node *reverse(t_node *head)
-{
-	t_node *a;
-	t_node *prev;
-	t_node *nxt;
-	
-	if (!head)
-		return (0);
-	a = head;
-	prev = NULL;
-	while (a->next)
-	{
-		nxt = a->next;
-		a->next = prev;
-		prev = a;
-		a = nxt;
-	}
-	a->next = prev;
-	head = a;
-	return (head);
 }
 
 t_node	*parsing(int argc, char **argv)
@@ -110,7 +88,7 @@ int	is_already_sorted(t_node *head)
 	tmp = head;
 	while (tmp && tmp->next)
 	{
-		if (tmp->data < tmp->next->data)
+		if (tmp->data > tmp->next->data)
 			return (0);
 		tmp = tmp->next;
 	}

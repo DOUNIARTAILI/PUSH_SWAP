@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_3_5.c                                         :+:      :+:    :+:   */
+/*   sort_3_4_5.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 05:02:17 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/12 20:13:18 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/12 21:25:07 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,33 +44,10 @@ void	sort_3(struct stacknode **head_ptr)
 	*head_ptr = head;
 }
 
-// void	sort_5(t_node **head_a, t_node *head_b)
-// {
-// 	t_node	*head;
-// 	int		i;
-
-// 	i = 0;
-// 	head = *head_a;
-// 	while (i < 5)
-// 	{
-// 		if (head->data < 2)
-// 			pb(&head, &head_b, 1);
-// 		else
-// 			ra(&head, 1);
-// 		i++;
-// 	}
-// 	sort_3(&head);
-// 	if (head_b->data < head_b->next->data)
-// 		sb(head_b, 1);
-// 	pa(&head, &head_b, 1);
-// 	pa(&head, &head_b, 1);
-// 	*head_a = head; 
-// }
-
 void	sort_5(t_node **head_a)
 {
 	t_node	*head;
-	t_node *head_b;
+	t_node	*head_b;
 	int		i;
 
 	i = 0;
@@ -89,13 +66,13 @@ void	sort_5(t_node **head_a)
 		sb(head_b, 1);
 	pa(&head, &head_b, 1);
 	pa(&head, &head_b, 1);
-	*head_a = head; 
+	*head_a = head;
 }
 
 void	sort_4(t_node **head_a)
 {
 	t_node	*head;
-	t_node *head_b;
+	t_node	*head_b;
 	int		i;
 
 	i = 0;
@@ -111,5 +88,5 @@ void	sort_4(t_node **head_a)
 	}
 	sort_3(&head);
 	pa(&head, &head_b, 1);
-	*head_a = head; 
+	*head_a = head;
 }

@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 16:38:31 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/12 20:13:44 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/12 22:18:34 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void				pop(struct stacknode **head);
 void				rev_pop(struct stacknode **head);
 void				displaystack(struct stacknode *head);
 int					size_stack(struct stacknode *head);
+void				free_stack(t_node *head);
 int					ft_stacklast(t_node **head);
-// void				free_stack(t_node *head);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char				*ft_strdup(const char *s1);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
@@ -61,7 +61,6 @@ char				**ft_split(char const *s, char c);
 t_node				*indexing(struct stacknode *head);
 t_node				*tab_to_stack(int *tab, int size);
 void				sort_3(struct stacknode **head_ptr);
-// void				sort_5(t_node **head_a, t_node *head_b);
 void				sort_5(t_node **head_a);
 void				sort_4(t_node **head_a);
 void				sort_100(t_node **head_a, t_node *head_b);
