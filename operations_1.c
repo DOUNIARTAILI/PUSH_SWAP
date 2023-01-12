@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 05:18:55 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/09 19:33:05 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/12 19:30:02 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ void	rra(struct stacknode **head, int status)
 void	rrb(struct stacknode **head, int status)
 {
 	if (status == 1)
-		ft_putstr("rb\n");
+		ft_putstr("rrb\n");
 	rra(head, 0);
 }
