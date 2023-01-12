@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 16:38:31 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/11 14:18:48 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/12 20:13:44 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ t_node				*tab_to_stack(int *tab, int size);
 void				sort_3(struct stacknode **head_ptr);
 // void				sort_5(t_node **head_a, t_node *head_b);
 void				sort_5(t_node **head_a);
+void				sort_4(t_node **head_a);
 void				sort_100(t_node **head_a, t_node *head_b);
 void				search_stack_node(t_node **head_b, int data);
 void				sort_500(t_node **head_a_ptr, t_node *head_b);

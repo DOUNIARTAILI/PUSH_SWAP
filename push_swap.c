@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:01:00 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/12 20:05:31 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/12 20:15:37 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,14 @@ int	main(int argc, char **argv)
 	last = ft_stacklast(&indexed);
 	// displaystack(indexed);
 	// printf("%d", last);
-	// displaystack(indexed);
+	displaystack(indexed);
 	
 	if (is_already_sorted(indexed))
 		exit(0);
 	if (size_stack(indexed) == 3)
 		sort_3(&indexed);
+	else if (size_stack(indexed) == 4)
+		sort_4(&indexed);
 	else if (size_stack(indexed) == 5)
 		sort_5(&indexed);
 	else if (size_stack(indexed) > 5 && size_stack(indexed) <= 100)
@@ -100,7 +102,7 @@ int	main(int argc, char **argv)
 	else if (size_stack(indexed) > 100)
 		sort_500(&indexed, head_b);
 	// puts("****************");
-	// displaystack(indexed);
+	displaystack(indexed);
 	// head = sort_3(&head);
 	// printf("%d",head->data);
 }
