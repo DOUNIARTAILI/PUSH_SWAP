@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 05:00:51 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/12 22:25:53 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/14 21:32:26 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,11 @@ t_node	*indexing(struct stacknode *head)
 			index_update(a->data, b->data, &indexes[i], &indexes[j]);
 			j++;
 			b = b->next;
-		} 
+		}
 		i++;
 		a = a->next;
 	}
-	head = tab_to_stack(indexes, size_stack(head));
-	return (head);
+	return (tab_to_stack(indexes, size_stack(head)));
 }
 
 t_node	*tab_to_stack(int *tab, int size)

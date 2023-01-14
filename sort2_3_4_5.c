@@ -1,16 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_3_4_5.c                                       :+:      :+:    :+:   */
+/*   sort2_3_4_5.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 05:02:17 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/12 21:25:07 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/14 19:44:55 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_2(t_node **head_ptr)
+{
+	t_node	*tmp;
+
+	tmp = *head_ptr;
+	if (tmp->data > tmp->next->data)
+		sa(*head_ptr, 1);
+	*head_ptr = tmp;
+}
+
+void	sort_3_rest(struct stacknode **head, int first, int second, int third)
+{
+	if (first > second && second > third && third < first)
+	{
+		sa(*head, 1);
+		rra(head, 1);
+	}
+	else if (first < second && second > third && third > first)
+	{
+		rra(head, 1);
+		sa(*head, 1);
+	}
+}
 
 void	sort_3(struct stacknode **head_ptr)
 {
@@ -31,16 +55,9 @@ void	sort_3(struct stacknode **head_ptr)
 		ra(&head, 1);
 	else if (first > second && second < third && third > first)
 		sa(head, 1);
-	else if (first > second && second > third && third < first)
-	{
-		sa(head, 1);
-		rra(&head, 1);
-	}
-	else if (first < second && second > third && third > first)
-	{
-		rra(&head, 1);
-		sa(head, 1);
-	}
+	else if ((first > second && second > third && third < first)
+		|| (first < second && second > third && third > first))
+		sort_3_rest(&head, first, second, third);
 	*head_ptr = head;
 }
 

@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/12 22:29:08 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/14 21:30:02 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@ void	error_(t_node *head)
 	free_stack(head);
 	write(2, "Error \n", 7);
 	exit(EXIT_FAILURE);
+}
+
+void	atoi_check(const char *str, int *i, int *s)
+{
+	while (str[*i] == ' ' || str[*i] == '\n' || str[*i] == '\t'
+		|| str[*i] == '\v' || str[*i] == '\f' || str[*i] == '\r')
+		(*i)++;
+	if (str[*i] == '+' || str[*i] == '-')
+	{
+		if (str[*i] == '-')
+			(*s) = (*s) * (-1);
+		(*i)++;
+	}
 }
 
 int	ft_atoi(const char *str, t_node *head)
@@ -30,15 +43,7 @@ int	ft_atoi(const char *str, t_node *head)
 	r = 0;
 	count = 0;
 	s = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			s = s * (-1);
-		i++;
-	}
+	atoi_check(str, &i, &s);
 	while (str[i] <= '9' && str[i] >= '0')
 	{
 		r = r * 10 + (str[i] - '0');
