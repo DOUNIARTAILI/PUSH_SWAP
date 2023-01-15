@@ -6,56 +6,11 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:01:00 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/14 20:00:31 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/15 22:11:42 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_node	*newnode(int data)
-{
-	struct stacknode	*node;
-
-	node = (struct stacknode *)malloc(sizeof(struct stacknode));
-	if (!node)
-		return (NULL);
-	node->data = data;
-	node->next = NULL;
-	return (node);
-}
-
-void	push(struct stacknode **head, int data)
-{
-	struct stacknode	*node;
-
-	node = newnode(data);
-	node->next = *head;
-	*head = node;
-}
-
-void	pop(struct stacknode **head)
-{
-	struct stacknode	*tmp;
-
-	tmp = *head;
-	if (is_empty(*head) == 0)
-		return ;
-	(*head) = (*head)->next;
-	free(tmp);
-}
-
-void	rev_pop(struct stacknode **head)
-{
-	struct stacknode	*tmp;
-
-	tmp = *head;
-	if (is_empty(*head) == 0)
-		return ;
-	while (tmp->next->next != NULL)
-		tmp = tmp->next;
-	tmp->next = NULL;
-	free(tmp->next);
-}
 
 int	main(int argc, char **argv)
 {

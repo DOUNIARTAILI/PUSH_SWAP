@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/14 21:30:02 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/15 23:05:14 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_(t_node *head)
 {
-	free_stack(head);
+	(void)head;
 	write(2, "Error \n", 7);
 	exit(EXIT_FAILURE);
 }
