@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 05:22:06 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/12 21:32:26 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/17 00:20:27 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,12 @@ void	free_stack(t_node *head)
 {
 	t_node	*tmp;
 
-	tmp = head;
-	while (tmp)
+	while (head != NULL)
 	{
+		tmp = head;
+		head = head->next;
 		free(tmp);
-		tmp = tmp->next;
 	}
-	free(head);
 }
 
 int	ft_stacklast(t_node **head)

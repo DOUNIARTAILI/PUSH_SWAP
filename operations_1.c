@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 05:18:55 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/12 19:30:02 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/16 21:36:40 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ void	rb(struct stacknode **head, int status)
 	ra(head, 0);
 }
 
-void	rr(struct stacknode **head_a, struct stacknode **head_b)
+void	rr(struct stacknode **head_a, struct stacknode **head_b, int status)
 {
-	ft_putstr("rr\n");
+	if (status == 1)
+		ft_putstr("rr\n");
 	ra(head_a, 0);
 	rb(head_b, 0);
 }
@@ -51,6 +52,8 @@ void	rra(struct stacknode **head, int status)
 	struct stacknode	*tmp;
 
 	tmp = *head;
+	if (size_stack(*head) < 2)
+		return ;
 	if (status == 1)
 		ft_putstr("rra\n");
 	while (tmp->next != NULL)
@@ -61,6 +64,8 @@ void	rra(struct stacknode **head, int status)
 
 void	rrb(struct stacknode **head, int status)
 {
+	if (size_stack(*head) < 2)
+		return ;
 	if (status == 1)
 		ft_putstr("rrb\n");
 	rra(head, 0);

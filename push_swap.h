@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 16:38:31 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/15 20:49:33 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/17 00:49:38 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 #  define BUFFER_SIZE 10
 # endif
 
-
-
 typedef struct stacknode{
 	int					data;
 	struct stacknode	*next;
@@ -33,17 +31,20 @@ typedef struct stacknode{
 
 void				sa(struct stacknode *head, int status);
 void				sb(struct stacknode *head, int status);
-void				ss(struct stacknode *head_a, struct stacknode *head_b);
+void				ss(struct stacknode *head_a,
+						struct stacknode *head_b, int status);
 void				pa(struct stacknode **head_a,
 						struct stacknode **head_b, int status);
 void				pb(struct stacknode **head_a,
 						struct stacknode **head_b, int status);
 void				ra(struct stacknode **head, int status);
 void				rb(struct stacknode **head, int status);
-void				rr(struct stacknode **head_a, struct stacknode **head_b);
+void				rr(struct stacknode **head_a,
+						struct stacknode **head_b, int status);
 void				rra(struct stacknode **head, int status);
 void				rrb(struct stacknode **head, int status);
-void				rrr(struct stacknode **head_a, struct stacknode **head_b);
+void				rrr(struct stacknode **head_a,
+						struct stacknode **head_b, int status);
 t_node				*newnode(int data);
 int					is_empty(struct stacknode *head);
 void				push(struct stacknode **head, int data);
@@ -82,6 +83,7 @@ size_t				ft_strlen_gl(char *s);
 int					ft_find_next_line(char *sta);
 char				*ft_strjoin(char *s1, char *s2);
 size_t				ft_strlcpy_gl(char *dst, char *src, size_t dstsize);
-
-
+void				which_op_to_apply(t_node **indexed,
+						t_node **head_b, char *line);
+int					is_sorted(t_node **indexed);
 #endif

@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:08:14 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/15 23:05:14 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/17 00:20:39 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ t_node	*parsing(int argc, char **argv)
 	{
 		splits = ft_split(argv[i], ' ');
 		j = 0;
+		if (!splits[j])
+			error_(head);
 		while (splits[j])
 		{
 			push(&head, ft_atoi(splits[j], head));

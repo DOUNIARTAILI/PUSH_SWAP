@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:49:59 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/09 17:43:38 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/16 21:37:25 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	sb(struct stacknode *head, int status)
 	sa(head, 0);
 }
 
-void	ss(struct stacknode *head_a, struct stacknode *head_b)
+void	ss(struct stacknode *head_a, struct stacknode *head_b, int status)
 {
-	ft_putstr("ss\n");
+	if (status == 1)
+		ft_putstr("ss\n");
 	sa(head_a, 0);
 	sb(head_b, 0);
 }

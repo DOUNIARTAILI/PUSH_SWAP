@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:01:00 by drtaili           #+#    #+#             */
-/*   Updated: 2023/01/15 22:11:42 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/01/17 00:18:27 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ int	main(int argc, char **argv)
 		sort_100(&indexed, head_b);
 	else if (size_stack(indexed) > 100)
 		sort_over_100(&indexed, head_b);
+	exit(0);
 }
